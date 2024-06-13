@@ -115,7 +115,6 @@
     }
 
     function catchWord(word, wordElement) {
-      // Останавливаем движение текущего слова
       gsap.killTweensOf(wordElement);
 
       wordElement.style.transform = `translateY(${wordElement.offsetTop}px)`;
@@ -127,7 +126,6 @@
       popupDefinition.textContent = word.definition;
       popupPronunciation.textContent = `Pronunciation: ${word.pronunciation}`;
 
-      // Возвращаем нормальную скорость падения слов после клика
       const allWords = document.querySelectorAll('.word');
       allWords.forEach(w => {
         if (!w.classList.contains('hidden')) {

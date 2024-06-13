@@ -14,99 +14,99 @@ let gameData = [];
 const difficultyData = {
   easy: [
     {
-      image: '../assets/wordsmithing/easy/dog.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/easy/dog.jpg',
       correctWord: 'dog',
       wrongWords: ['cat', 'bird', 'fish']
     },
     {
-      image: '../assets/wordsmithing/easy/apple.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/easy/apple.jpg',
       correctWord: 'apple',
       wrongWords: ['banana', 'orange', 'pear']
     },
 		{
-      image: '../assets/wordsmithing/easy/giraffe.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/easy/giraffe.jpg',
       correctWord: 'giraffe',
       wrongWords: ['gippo', 'elephant', 'bear']
     },
 		{
-      image: '../assets/wordsmithing/easy/snake.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/easy/snake.jpg',
       correctWord: 'snake',
       wrongWords: ['hamster', 'lion', 'lizzard']
     },
 		{
-      image: '../assets/wordsmithing/easy/butterfly.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/easy/butterfly.jpg',
       correctWord: 'butterfly',
       wrongWords: ['rat', 'ant', 'fly']
     },
   ],
   normal: [
     {
-      image: '../assets/wordsmithing/normal/abacus.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/abacus.jpg',
       correctWord: 'abacus',
 
       wrongWords: ['calculator', 'ruler', 'compass']
     },
     {
-      image: '../assets/wordsmithing/normal/sextant.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/sextant.jpg',
       correctWord: 'sextant',
       wrongWords: ['theodolite', 'planimeter', 'orrery']
     },
 		{
-      image: '../assets/wordsmithing/normal/zipper.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/zipper.jpg',
       correctWord: 'zipper',
       wrongWords: ['cloth', 'jeans', 'lightning ']
     },
 		{
-      image: '../assets/wordsmithing/normal/umbrella.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/umbrella.jpg',
       correctWord: 'umbrella',
       wrongWords: ['raincover', 'lollipop', 'shotgun']
     },
 		{
-      image: '../assets/wordsmithing/normal/doorknob.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/doorknob.jpg',
       correctWord: 'doorknob',
       wrongWords: ['doorhand', 'entrance', 'mechanism']
     },
 		{
-      image: '../assets/wordsmithing/normal/compass.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/compass.jpg',
       correctWord: 'compass',
       wrongWords: ['map', 'magnite', 'orrery']
     },
 		{
-      image: '../assets/wordsmithing/normal/micrometer.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/normal/micrometer.jpg',
       correctWord: 'micrometer',
       wrongWords: ['scissors', 'umbrella', 'ladder']
     },
   ],
   hard: [
     {
-      image: '../assets/wordsmithing/hard/beaker.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/hard/beaker.jpg',
       correctWord: 'beaker',
       wrongWords: ['glass', 'cup', 'bowl']
     },
 		{
-      image: '../assets/wordsmithing/hard/seismograph.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/hard/seismograph.jpg',
       correctWord: 'seismograph',
       wrongWords: ['thermometer', 'computer', 'Dr.Clainer thing :)']
     }
   ],
   pain: [
     {
-      image: '../assets/wordsmithing/pain/astrolabe.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/pain/astrolabe.jpg',
       correctWord: 'astrolabe',
       wrongWords: ['micrometer', 'seismograph', 'orrery']
     },
     {
-      image: '../assets/wordsmithing/pain/theodolite.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/pain/theodolite.jpg',
       correctWord: 'theodolite',
       wrongWords: ['planimeter', 'micrometer', 'sextant']
     },
 		{
-      image: '../assets/wordsmithing/pain/orrery.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/pain/orrery.jpg',
       correctWord: 'orrery',
       wrongWords: ['seismograph', 'planet', 'abacus']
     },
 		{
-      image: '../assets/wordsmithing/pain/bunsenburner.jpg',
+      image: 'https://dangettosir.github.io/W.O.R.D.S/assets/wordsmithing/pain/bunsenburner.jpg',
       correctWord: 'bunsen burner',
       wrongWords: ['matchstick', 'lighter', 'candle']
     },
@@ -145,7 +145,7 @@ function displayWords(correctWord, wrongWords) {
 }
 
 function selectWord(wordSpan) {
-  // Deselect previously selected word
+
   const selectedWordSpan = wordList.querySelector('.selected');
   if (selectedWordSpan) {
     selectedWordSpan.classList.remove('selected');
