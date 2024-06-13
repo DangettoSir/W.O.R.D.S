@@ -1,0 +1,14 @@
+
+body {
+	background-color: #151515;
+  background-size: cover;
+  background-position: center;
+}
+
+#currentWord {
+  font-family: monospace;
+}
+
+#countdown {
+  font-size: 4rem;
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhyming</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../styles/light theme/light-theme-rhyming.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/Draggable.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center align-items-center vh-100">
+            <div class="col-8 col-md-6 col-lg-4 text-center">
+                <h1 class="mb-4 text-white">Rhyming</h1>
+                <div id="game-board">
+                    <div id="rhyme-box"></div>
+                    <div id="correct-box" class="box text-white">Correct</div>
+                    <div id="incorrect-box" class="box text-white">Incorrect	</div>
+                    <div id="word-box"></div>
+                </div>
+                <div class="my-4">
+                    <button id="start-btn" class="btn btn-primary">Start</button>
+                    <span id="score" class="ml-3 text-white">Score: 0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../scripts/scripts-rhyming.js"></script>
+</body>
+</html>

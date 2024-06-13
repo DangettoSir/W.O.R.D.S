@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dictation</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+		body{
+			background-color: #151515;
+		}
+    .game-container {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .game-result {
+      display: none;
+    }
+    .answer-feedback {
+      display: none;
+      margin-top: 1rem;
+    }
+    .answer-feedback.correct {
+      color: green;
+    }
+    .answer-feedback.incorrect {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h1 class="text-white">Dictation</h1>
+    <button class="btn btn-primary btn-lg start-game">Start</button>
+    <div class="game-content">
+      <div class="form-group text-white">
+        <label for="user-input ">Type the word you hear:</label>
+        <input type="text" class="form-control" id="user-input" placeholder="Enter the word">
+      </div>
+      <button class="btn btn-success submit-answer">Submit</button>
+      <div class="answer-feedback"></div>
+    </div>
+    <div class="game-result">
+      <h2>Game Over</h2>
+      <p>Your score: <span class="score">0</span>/10</p>
+      <button class="btn btn-primary btn-lg restart-game">Restart</button>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
+  <script>
+    const words = ['hello', 'hi', 'nothing', 'whereisthebathroom-question', 'whatdoyourecommend-question','thecheck,please','thankyouverymuch','canyourecommendagoodrestaurantnearby-question'];
+		let currentWordIndex = 0;
+		let score = 0;
+		let userInputs = [];
+
+		const soundsCache = {};
+
+		document.querySelector('.start-game').addEventListener('click', startGame);
+		document.querySelector('.submit-answer').addEventListener('click', checkAnswer);
+		document.querySelector('.restart-game').addEventListener('click', restartGame);
+
+		function startGame() {
+			document.querySelector('.start-game').style.display = 'none';
+			document.querySelector('.game-content').style.display = 'block'
+			shuffleArray(words);
+			playNextWord();
+		}
+
+		function shuffleArray(array) {
+			for (let i = array.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[array[i], array[j]] = [array[j], array[i]];
+			}
+		}
+
+		function playNextWord() {
+			const currentWord = words[currentWordIndex];
+			if (!soundsCache[currentWord]) {
+				soundsCache[currentWord] = new Howl({
+					src: [`../assets/sounds/${currentWord}.mp3`],
+					volume: 0.5
+				});
+			}
+			soundsCache[currentWord].play();
+
+			gsap.from('#user-input', { duration: 1, y: 100, opacity: 0, ease: 'power2.out' });
+			currentWordIndex++;
+		}
+
+		function checkAnswer() {
+			const userInput = document.querySelector('#user-input').value.toLowerCase().replace(/\s/g, '');
+			const currentWord = words[currentWordIndex - 1];
+			const answerFeedback = document.querySelector('.answer-feedback');
+
+			if (currentWord.endsWith('-question') && userInput.endsWith('?')) {
+				score++;
+				answerFeedback.textContent = 'Correct!';
+				answerFeedback.classList.add('correct');
+				answerFeedback.classList.remove('incorrect');
+			} else if (currentWord.endsWith('-exclamation') && userInput.endsWith('!')) {
+				score++;
+				answerFeedback.textContent = 'Correct!';
+				answerFeedback.classList.add('correct');
+				answerFeedback.classList.remove('incorrect');
+			} else if (!currentWord.endsWith('-question') && !currentWord.endsWith('-exclamation')) {
+				if (userInput === currentWord) {
+					score++;
+					answerFeedback.textContent = 'Correct!';
+					answerFeedback.classList.add('correct');
+					answerFeedback.classList.remove('incorrect');
+				} else {
+					answerFeedback.textContent = `Incorrect. The correct answer is: ${currentWord}`;
+					answerFeedback.classList.add('incorrect');
+					answerFeedback.classList.remove('correct');
+				}
+			} else {
+				answerFeedback.textContent = `Incorrect. The correct answer is: ${currentWord}`;
+				answerFeedback.classList.add('incorrect');
+				answerFeedback.classList.remove('correct');
+			}
+
+			userInputs.push(userInput);
+			answerFeedback.style.display = 'block';
+			document.querySelector('#user-input').value = '';
+
+			if (userInputs.length === 10) {
+				endGame();
+			} else {
+				setTimeout(() => {
+					answerFeedback.style.display = 'none';
+					playNextWord();
+				}, 2000);
+			}
+		}
+
+		function endGame() {
+			document.querySelector('.game-content').style.display = 'none';
+			document.querySelector('.game-result').style.display = 'block';
+			document.querySelector('.score').textContent = score;
+
+			gsap.from('.game-result', { duration: 1, y: 100, opacity: 0, ease: 'power2.out' });
+		}
+
+		function restartGame() {
+			currentWordIndex = 0;
+			score = 0;
+			userInputs = [];
+			document.querySelector('.game-result').style.display = 'none';
+			document.querySelector('.game-content').style.display = 'block';
+			document.querySelector('#user-input').value = '';
+			document.querySelector('.answer-feedback').style.display = 'none';
+			startGame();
+		}
+
+
+  </script>
+</body>
+</html>

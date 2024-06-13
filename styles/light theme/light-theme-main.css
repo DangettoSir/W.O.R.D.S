@@ -1,0 +1,193 @@
+body {
+  background-color: #151515;
+  height: fit-content;
+  margin: 0;
+}
+.tv-screen {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	border: 5px solid #504f4f;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	background-color: #151515;
+	transform: translateZ(50px);
+	border-radius: 50% / 10%;
+}
+.navbar{
+	background-color: gray;
+}
+
+
+#canvas-container {
+  max-width: 650px;
+  max-height: 100px;
+}
+
+.test{
+	margin-top: 10%;
+	margin-left: 10%;
+	width: 350px;
+	height: 350px;
+	background-color: beige;
+}
+
+.welcome, .words{
+	width: fit-content;
+	height: auto;
+	z-index: 1;
+}
+
+.start{
+	width: fit-content;
+	height: fit-content;  
+	position: absolute;
+  top: 40%;
+  left: 48%;
+	z-index: 2
+}
+
+.blinking-button {
+	box-shadow: 0 0 10px #15851e80;
+	background-color: #18972280;
+	color : rgb(192, 192, 192);
+  font-size: 24px;
+  padding: 10px 20px;
+  animation: blink 1s infinite;
+}
+.blinking-button:hover {
+	box-shadow: 0 0 20px #ca202080;
+	background-color: #ff2c2c80;
+	color : rgb(255, 255, 255);
+  font-size: 24px;
+  padding: 10px 20px;
+  animation: shakeXY 1s;
+	transition: background-color 1s ease, box-shadow 1s ease; 
+}
+
+@keyframes shakeXY {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-10px, 10px);
+  }
+  20% {
+    transform: translate(10px, -10px);
+  }
+  30% {
+    transform: translate(-10px, 10px);
+  }
+  40% {
+    transform: translate(10px, -10px);
+  }
+  50% {
+    transform: translate(-10px, 10px);
+  }
+  60% {
+    transform: translate(10px, -10px);
+  }
+  70% {
+    transform: translate(-10px, 10px);
+  }
+  80% {
+    transform: translate(10px, -10px);
+  }
+  90% {
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.logotype{
+	font-size: 100px;
+	color: aliceblue;
+}
+
+.screen-container {
+  width: 100%;
+  height: 100vh;
+  background-color:#1f642062;
+	background-image: url('/assets/media/voltiboi-vault-boy-vault-tec-volt-tek-bethesda-game-studio-1.jpg');
+	background-blend-mode: color;
+	background-size: 200%;
+  position: relative;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  background-color: #151515; 
+  position: relative;
+  animation: screen-turn-on 0.8s ease-in-out;
+}	
+
+.content {
+  opacity: 0;
+  animation: content-fade-in 0.5s ease-in-out 1s forwards;
+}
+
+@keyframes screen-turn-on {
+  0% {
+		border-radius: 50%;
+    transform: scaleY(0);
+    transform-origin: center;
+  }
+  100% {
+		border-radius: 0;
+    transform: scaleY(1);
+    transform-origin: center;
+  }
+}
+
+
+
+@keyframes screen-glitch {
+  0% {
+    transform: skewY(0deg);
+  }
+  25% {
+    transform: skewY(3deg);
+  }
+  50% {
+    transform: skewY(-3deg);
+  }
+  75% {
+    transform: skewY(2deg);
+  }
+  100% {
+    transform: skewY(0deg);
+  }
+}
+
+@keyframes content-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+a {
+text-decoration: none;
+color: black;
+} 
+a:visited { text-decoration: none; color:black; }
+a:hover { text-decoration: none; color:black; }
+a:focus { text-decoration: none; color:black; }
+a:hover, a:active { text-decoration: none; color:black }

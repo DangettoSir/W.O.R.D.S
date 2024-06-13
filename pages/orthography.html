@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orthography</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../styles/light theme/light-theme-wordsmithing.css">
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4 text-white">Orthography</h1>
+
+    <div class="d-flex justify-content-center mb-4">
+      <button id="startBtn" class="btn btn-primary">Start Game</button>
+      <div id="countdown" class="d-none ms-3 text-white">
+        <span class="display-4"></span>
+      </div>
+    </div>
+
+    <div id="gameArea" class="d-none">
+      <div class="row mb-3">
+        <div class="col-md-6 offset-md-3">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Current Word</h5>
+              <p id="currentWord" class="card-text display-4 text-center"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-6 offset-md-3">
+          <div class="input-group">
+            <input type="text" id="inputField" class="form-control" placeholder="Type the word" aria-label="Type the word" aria-describedby="inputGroup-sizing-default">
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 offset-md-3 text-end text-white">
+          <p>Correct Words: <span id="correctWords">0</span></p>
+        </div>
+        <div class="col-md-3 text-end text-white">
+          <p>Errors: <span id="errors">0</span></p>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-md-3 offset-md-3 text-end text-white">
+          <p>WPM: <span id="wpm">0</span></p>
+        </div>
+        <div class="col-md-3 text-end text-white">
+          <p>Time: <span id="time">20</span>s</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+  <script src="../scripts/scripts-wordsmithing.js"></script>
+</body>
+</html>
